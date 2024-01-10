@@ -28,7 +28,10 @@
 #ifndef _POSIX_SOURCE
 #  define _POSIX_SOURCE
 #endif
-#include <fcntl.h>
+
+#if !defined (CTL_RTOS) && !defined (LITTLEKERNEL)
+#  include <fcntl.h>
+#endif
 
 #ifdef _WIN32
 #  include <stddef.h>

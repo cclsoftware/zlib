@@ -451,7 +451,11 @@ typedef uLong FAR uLongf;
 
 #ifdef STDC
 #  ifndef Z_SOLO
-#    include <sys/types.h>      /* for off_t */
+#    ifndef CTL_RTOS
+#      include <sys/types.h>      /* for off_t */
+#    else
+       typedef long off_t;
+#    endif
 #  endif
 #endif
 
